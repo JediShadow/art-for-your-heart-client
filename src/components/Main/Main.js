@@ -13,19 +13,20 @@ import {
 
 
 function Main({user}){
-const [toSwipe,setToSwipe] = useState(null);
-const [currentIndex, setCurrentIndex] = useState(0);
+    const localUser = JSON.parse(localStorage.getItem('user'));
+    console.log("user for likes", user)
+    const [toSwipe,setToSwipe] = useState(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     async function handleLike (){
-        console.log(toSwipe[currentIndex].id)
+
         axios.post("http://localhost:8080/likes", {
+            likerId: localUser.stringId,
+            likeeId: toSwipe[currentIndex].id
+        }, {
             headers: {
                 'Content-Type': 'application/json',
             },
-            likerId: "65df6cad153d9d1bf6d95989",
-            likeeId: toSwipe[currentIndex].id
-
-        },{
             withCredentials: true
         })
             .then((response) => {

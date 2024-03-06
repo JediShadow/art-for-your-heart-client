@@ -24,6 +24,9 @@ function Signup(){
             formData.append('artPhotos', file);
         }
         formData.append('interests', event.target.interests.value);
+        formData.append('yes', []);
+        formData.append('no', []);
+        formData.append('matches', []);
         formData.append('roles', JSON.stringify(['ROLE_USER']));
 
         axios.post("http://localhost:8080/users", formData, {
