@@ -12,7 +12,7 @@ import {
 } from 'semantic-ui-react'
 
 
-function Main({user, matches, setMatches}) {
+function Main({user, matches, setMatches, backendPort}) {
     const [toSwipe, setToSwipe] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [liked, setLiked] = useState(false); // State to track if liked

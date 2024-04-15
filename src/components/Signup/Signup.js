@@ -4,7 +4,7 @@ import logo from '../../assets/logo.png'
 import { useNavigate} from 'react-router-dom';
 import { FormField, Button, Form, FormSelect, FormTextArea, FormCheckbox } from 'semantic-ui-react'
 
-function Signup(){
+function Signup({backendPort}){
     const navigate = useNavigate();
 
     async function handleSubmit (event) {

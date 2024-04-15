@@ -14,6 +14,7 @@ import 'semantic-ui-css/semantic.min.css'
 function App() {
   const [user, setUser] = useState(null);
   const [matches,setMatches] = useState(null);
+  let backendPort = process.env.BACKEND_PORT;
 
 
   const handleLogout = () => {
@@ -38,12 +39,12 @@ function App() {
       )
   }
         <Routes>
-          <Route path="/"element={<Login handleLogin={handleLogin} user={user}  />}/>
-          <Route path="/signup" element={<Signup handleLogin={handleLogin}/>} />
-          <Route path="/main" element={ <Main user={user} matches={matches} setMatches={setMatches}/>}/>
-          <Route path="/matches" element={<Matches user={user} matches={matches} setMatches={setMatches}/>}/>
-          <Route path="/messages" element={<Messages matches={matches} />} />
-          <Route path="/profile" element={<Profile handleLogout={handleLogout} user={user} />} />
+          <Route path="/"element={<Login handleLogin={handleLogin} user={user}  backendPort={backendPort}/>}/>
+          <Route path="/signup" element={<Signup handleLogin={handleLogin} backendPort={backendPort}/>} />
+          <Route path="/main" element={ <Main user={user} matches={matches} setMatches={setMatches} backendPort={backendPort}/>}/>
+          <Route path="/matches" element={<Matches user={user} matches={matches} setMatches={setMatches} backendPort={backendPort}/>}/>
+          <Route path="/messages" element={<Messages matches={matches} backendPort={backendPort}/>} />
+          <Route path="/profile" element={<Profile handleLogout={handleLogout} user={user} backendPort={backendPort}/>} />
         </Routes>
       </BrowserRouter>
     </div>

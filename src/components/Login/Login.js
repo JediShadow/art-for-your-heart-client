@@ -2,10 +2,11 @@ import './Login.scss';
 import axios from 'axios';
 import logo from '../../assets/logo.png'
 import { useNavigate} from 'react-router-dom';
+import { useEffect } from 'react';
 import { FormField, Button, Form } from 'semantic-ui-react'
 
 
-function Login({ handleLogin }) {
+function Login({ handleLogin, backendPort }) {
     const navigate = useNavigate();
 
     async function handleSubmit(event) {
@@ -38,7 +39,7 @@ function Login({ handleLogin }) {
                 }
                 console.log(user)
 
-                axios.get('http://localhost:8080/users/api/auth/check', { withCredentials: true })
+                axios.get(`${backendPort}/users/api/auth/check`, { withCredentials: true })
                     .then(response => {
                         const isAuthenticated = response.data;
                         if (isAuthenticated) {
