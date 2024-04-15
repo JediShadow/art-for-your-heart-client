@@ -15,7 +15,7 @@ function Messages({matches}) {
     const fetchMessages = async (matchId) => {
         try {
             console.log(currentUser)
-            const response = await axios.get(`http://localhost:8080/messages/${currentUser.stringId}/${matchId}`, {withCredentials: true});
+            const response = await axios.get(`${backendPort}/messages/${currentUser.stringId}/${matchId}`, {withCredentials: true});
             console.log(response, "fetchMessages response")
             setMessages(response.data);
         } catch (error) {
@@ -35,7 +35,7 @@ function Messages({matches}) {
         if (!messageContent.trim()) return;
 
         try {
-            const response = await axios.post('http://localhost:8080/messages/send', {
+            const response = await axios.post(`${backendPort}/messages/send`, {
                 senderId: currentUser.stringId,
                 receiverId: selectedMatch.stringId,
                 content: messageContent,

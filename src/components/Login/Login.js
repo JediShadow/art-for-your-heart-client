@@ -15,7 +15,7 @@ function Login({ handleLogin }) {
         formData.append('username', event.target.username.value);
         formData.append('password', event.target.password.value);
 
-        axios.post("http://localhost:8080/perform_login", formData, {
+        axios.post(`${backendPort}/perform_login`, formData, {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },

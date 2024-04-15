@@ -19,7 +19,7 @@ function Main({user, matches, setMatches}) {
 
     async function handleLike() {
         const user = JSON.parse(localStorage.getItem('user'));
-        axios.post("http://localhost:8080/likes", {
+        axios.post(`${backendPort}/likes`, {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -61,7 +61,7 @@ function Main({user, matches, setMatches}) {
 
     async function getPeople() {
         const user = JSON.parse(localStorage.getItem('user'));
-        axios.get(`http://localhost:8080/users/main?userId=${user.stringId}`, {}, {
+        axios.get(`${backendPort}/users/main?userId=${user.stringId}`, {}, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -88,7 +88,7 @@ function Main({user, matches, setMatches}) {
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
-        axios.get(`http://localhost:8080/likes/matches?userId=${user.stringId}`)
+        axios.get(`${backendPort}/likes/matches?userId=${user.stringId}`)
             .then((response) => {
                 let data = response.data;
                 setMatches(data);
@@ -104,7 +104,7 @@ function Main({user, matches, setMatches}) {
         // Fetch matches again if liked state changes
         if (liked) {
             axios
-                .get(`http://localhost:8080/likes/matches?userId=${user.stringId}`)
+                .get(`${backendPort}/likes/matches?userId=${user.stringId}`)
                 .then((response) => {
                     let data = response.data;
                     setMatches(data);

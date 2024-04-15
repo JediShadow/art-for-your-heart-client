@@ -26,7 +26,7 @@ function Signup(){
         formData.append('interests', event.target.interests.value);
         formData.append('roles', JSON.stringify(['ROLE_USER']));
 
-        axios.post("http://localhost:8080/users", formData, {
+        axios.post(`${backendPort}/users`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             },
