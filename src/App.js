@@ -14,7 +14,7 @@ import 'semantic-ui-css/semantic.min.css'
 function App() {
   const [user, setUser] = useState(null);
   const [matches,setMatches] = useState(null);
-  let backendPort = process.env.BACKEND_PORT;
+  let backendPort = process.env.REACT_APP_BACKEND_PORT;
 
 
   const handleLogout = () => {

@@ -42,6 +42,7 @@ function Login({ handleLogin, backendPort }) {
                 axios.get(`${backendPort}/users/api/auth/check`, { withCredentials: true })
                     .then(response => {
                         const isAuthenticated = response.data;
+                        console.log(response.data)
                         if (isAuthenticated) {
                             console.log("User is authenticated");
                             navigate('/main');
