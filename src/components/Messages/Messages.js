@@ -10,7 +10,28 @@ function Messages({matches}) {
     const [messageContent, setMessageContent] = useState('');
     const colors = ['green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'black'];
     const currentUser = JSON.parse(localStorage.getItem('user'));
+    const [messageCount, setMessageCount] = useState({});
+//match.stringId from handleThreadClick : response.data.length from fetchMessages
 
+//to set Object for blurry images dpending on messageCount
+useEffect(() => {
+    const fetchMessageCounts = async () => {
+        try {
+            const messageCounts = {};
+            for (const match of matches) {
+                const response = await axios.get(`http://localhost:8080/messages/${currentUser.stringId}/${match.stringId}`, { withCredentials: true });
+                messageCounts[match.stringId] = response.data.length;
+            }
+            setMessageCount(messageCounts);
+        } catch (error) {
+            console.error("Failed to fetch message counts", error);
+        }
+    };
+
+    if (currentUser && matches) {
+        fetchMessageCounts();
+    }
+}, [currentUser, matches]);
 
     const fetchMessages = async (matchId) => {
         try {
