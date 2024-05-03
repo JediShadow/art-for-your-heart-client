@@ -1,6 +1,7 @@
 import './Main.scss';
 import axios from 'axios';
 import {useState, useEffect} from 'react';
+import Modal from '../Modal/Modal';
 import {
     CardMeta,
     CardHeader,
@@ -9,14 +10,13 @@ import {
     Card,
     Icon,
     Image,
-} from 'semantic-ui-react'
+} from 'semantic-ui-react';
 
 
-function Main({user, matches, setMatches}) {
+function Main({user, matches, setMatches, modal, setModal, modalPerson, setModalPerson}) {
     const [toSwipe, setToSwipe] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [liked, setLiked] = useState(false); // State to track if liked
-
     async function handleLike() {
         const user = JSON.parse(localStorage.getItem('user'));
         axios.post("http://localhost:8080/likes", {
@@ -116,6 +116,16 @@ function Main({user, matches, setMatches}) {
                 });
         }
     }, [liked]);
+
+    const handleClick=(person)=>{
+        setModal(true)
+        setModalPerson(person)
+        console.log(person)
+    }
+    const closeModal = () => {
+        setModal(false); 
+    }
+    
     return (
         <div className='main'>
             <div className="title-flex">
@@ -123,7 +133,7 @@ function Main({user, matches, setMatches}) {
             </div>
             <div className='main-card-flex'>
         {toSwipe && toSwipe.length > 0 && (
-                <Card>
+                <Card onClick={() =>handleClick(toSwipe[currentIndex])}>
                     <Image
                         src={toSwipe[currentIndex].artPhotos !== null ? toSwipe[currentIndex].artPhotos[0] : 'https://react.semantic-ui.com/images/avatar/large/matthew.png'}
                         wrapped ui={false}/>
@@ -153,7 +163,7 @@ function Main({user, matches, setMatches}) {
                 </button>
             </div>
             </div>
-
+            {modal && <Modal closeModal={() => setModal(false)} modalPerson={modalPerson} />}
         </div>
     );
 }

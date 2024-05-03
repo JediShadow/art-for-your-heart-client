@@ -4,13 +4,12 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { FormField, Button, Form, FormSelect, FormTextArea, FormCheckbox } from 'semantic-ui-react'
 
-function Messages({matches}) {
+function Messages({matches, messageCount, setMessageCount}) {
     const [selectedMatch, setSelectedMatch] = useState(null);
     const [messages, setMessages] = useState([]);
     const [messageContent, setMessageContent] = useState('');
     const colors = ['green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'black'];
     const currentUser = JSON.parse(localStorage.getItem('user'));
-    const [messageCount, setMessageCount] = useState({});
 //match.stringId from handleThreadClick : response.data.length from fetchMessages
 
 //to set Object for blurry images dpending on messageCount

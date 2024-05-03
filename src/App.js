@@ -14,6 +14,10 @@ import 'semantic-ui-css/semantic.min.css'
 function App() {
   const [user, setUser] = useState(null);
   const [matches,setMatches] = useState(null);
+  const[modal, setModal]=useState(false);
+  const [messageCount, setMessageCount] = useState({});
+  const [modalPerson, setModalPerson] = useState(null);
+
 
 
   const handleLogout = () => {
@@ -40,9 +44,9 @@ function App() {
         <Routes>
           <Route path="/"element={<Login handleLogin={handleLogin} user={user}  />}/>
           <Route path="/signup" element={<Signup handleLogin={handleLogin}/>} />
-          <Route path="/main" element={ <Main user={user} matches={matches} setMatches={setMatches}/>}/>
-          <Route path="/matches" element={<Matches user={user} matches={matches} setMatches={setMatches}/>}/>
-          <Route path="/messages" element={<Messages matches={matches} />} />
+          <Route path="/main" element={ <Main user={user} matches={matches} setMatches={setMatches} modal={modal} setModal={setModal} modalPerson={modalPerson} setModalPerson= {setModalPerson}/>}/>
+          <Route path="/matches" element={<Matches user={user} matches={matches} setMatches={setMatches} modal={modal} setModal={setModal} modalPerson={modalPerson} setModalPerson= {setModalPerson}/>}/>
+          <Route path="/messages" element={<Messages matches={matches} />} messageCount={messageCount} setMessageCount={setMessageCount}/>
           <Route path="/profile" element={<Profile handleLogout={handleLogout} user={user} />} />
         </Routes>
       </BrowserRouter>
