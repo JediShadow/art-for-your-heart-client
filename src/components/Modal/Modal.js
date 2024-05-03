@@ -15,7 +15,7 @@ function Modal({closeModal, modalPerson, messageCount}){
         console.log(messageCount);
       }, [messageCount]);
 
-      const opacity = Math.min(1, messageCount[modalPerson.stringId] * 0.1)
+      const opacity = messageCount[modalPerson.stringId] ? Math.min(1, messageCount[modalPerson.stringId] * 0.1) : 0;
  
 
 
