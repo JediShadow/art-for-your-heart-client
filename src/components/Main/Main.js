@@ -13,7 +13,7 @@ import {
 } from 'semantic-ui-react';
 
 
-function Main({user, matches, setMatches, modal, setModal, modalPerson, setModalPerson}) {
+function Main({setMatches, modal, setModal, modalPerson, setModalPerson, messageCount}) {
     const [toSwipe, setToSwipe] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [liked, setLiked] = useState(false); // State to track if liked
@@ -163,7 +163,7 @@ function Main({user, matches, setMatches, modal, setModal, modalPerson, setModal
                 </button>
             </div>
             </div>
-            {modal && <Modal closeModal={() => setModal(false)} modalPerson={modalPerson} />}
+            {modal && <Modal closeModal={() => setModal(false)} modalPerson={modalPerson} messageCount={messageCount} />}
         </div>
     );
 }

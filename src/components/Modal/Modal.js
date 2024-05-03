@@ -5,18 +5,21 @@ import React, { useEffect } from 'react';
 import $ from 'jquery';
 
 
-function Modal({closeModal, modalPerson}){
+function Modal({closeModal, modalPerson, messageCount}){
     
 
     // useEffect(() => {
     //     $('.ui.modal').modal('show'); 
     // }, []);
     console.log(modalPerson)
+    useEffect(() => {
+        console.log(messageCount);
+      }, [messageCount]);
+      const opacity = Math.min(1, messageCount[modalPerson.stringId] * 0.1)
 
     return (
         <div className='Modal'>
-            <p>this is a modal :D </p>
-            <img src={modalPerson.realPhoto}/>
+            <img src={modalPerson.realPhoto} style={{ opacity }}/>
             <p> Name: {modalPerson.name}</p>
             <p>Bio: {modalPerson.bio}</p>
             <p>Gender: {modalPerson.gender}</p>

@@ -15,7 +15,7 @@ import {
   } from 'semantic-ui-react'
 //   const { ObjectId } = require('mongodb');
 
-function Matches({user, setMatches, matches, modal, setModal, modalPerson, setModalPerson}){
+function Matches({matches, modal, setModal, modalPerson, setModalPerson, messageCount}){
 
     const handleClick=(person)=>{
         setModal(true)
@@ -62,7 +62,7 @@ function Matches({user, setMatches, matches, modal, setModal, modalPerson, setMo
            <p>no matches</p>
            }
             </Grid>
-            {modal && <Modal closeModal={() => setModal(false)} modalPerson={modalPerson} />}
+            {modal && <Modal closeModal={() => setModal(false)} modalPerson={modalPerson} messageCount={messageCount} />}
         </div>
     );
 }

@@ -44,9 +44,9 @@ function App() {
         <Routes>
           <Route path="/"element={<Login handleLogin={handleLogin} user={user}  />}/>
           <Route path="/signup" element={<Signup handleLogin={handleLogin}/>} />
-          <Route path="/main" element={ <Main user={user} matches={matches} setMatches={setMatches} modal={modal} setModal={setModal} modalPerson={modalPerson} setModalPerson= {setModalPerson}/>}/>
-          <Route path="/matches" element={<Matches user={user} matches={matches} setMatches={setMatches} modal={modal} setModal={setModal} modalPerson={modalPerson} setModalPerson= {setModalPerson}/>}/>
-          <Route path="/messages" element={<Messages matches={matches} />} messageCount={messageCount} setMessageCount={setMessageCount}/>
+          <Route path="/main" element={ <Main setMatches={setMatches} modal={modal} setModal={setModal} modalPerson={modalPerson} setModalPerson= {setModalPerson} messageCount={messageCount}/>}/>
+          <Route path="/matches" element={<Matches matches={matches} modal={modal} setModal={setModal} modalPerson={modalPerson} setModalPerson= {setModalPerson} messageCount={messageCount}/>}/>
+          <Route path="/messages" element={<Messages matches={matches} messageCount={messageCount} setMessageCount={setMessageCount} />} />
           <Route path="/profile" element={<Profile handleLogout={handleLogout} user={user} />} />
         </Routes>
       </BrowserRouter>
