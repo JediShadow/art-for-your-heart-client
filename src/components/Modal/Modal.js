@@ -20,9 +20,11 @@ function Modal({closeModal, modalPerson, messageCount}){
 
 
     return (
+        <>
+        <div className='modal-backdrop'></div>
         <div className='Modal'>
             <div className='Modal-content'>
-        <img src={modalPerson.realPhoto} style={{ opacity }}/>
+        <img className='Modal-img'src={modalPerson.realPhoto} style={{ opacity }}/>
            <p> Name: {modalPerson.name}</p>
            <p>Bio: {modalPerson.bio}</p>
            <p>Gender: {modalPerson.gender}</p>
@@ -30,11 +32,11 @@ function Modal({closeModal, modalPerson, messageCount}){
            <p>Interests: {modalPerson.interests}</p>
 
 
-            <button className='button-dislike' onClick={closeModal}>
+            <button className='close-button' onClick={closeModal}>
                     <span class="material-symbols-outlined">close</span>
                 </button>
                 </div>
-        </div>
+        </div></>
     );
 }
 
