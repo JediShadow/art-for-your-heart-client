@@ -82,7 +82,7 @@ function Login({ handleLogin }) {
 			<div className="navbar">
 				<ul>
 					<li>
-						<a>Home</a>
+						<a onClick={() => navigate("/about")}>Home</a>
 					</li>
 					<li>
 						<a onClick={() => navigate("/about")}>About</a>
