@@ -11,6 +11,12 @@ function Messages({messageCount, matches, setMessageCount}) {
     const colors = ['green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'black'];
     const currentUser = JSON.parse(localStorage.getItem('user'));
 
+    useEffect(() => {
+        if (selectedMatch) {
+            fetchMessages(selectedMatch.stringId);
+        }
+    }, [selectedMatch]); 
+
     const fetchMessages = async (matchId) => {
         try {
             console.log(currentUser)
@@ -26,7 +32,7 @@ function Messages({messageCount, matches, setMessageCount}) {
     const handleThreadClick = (match) => {
         console.log(match, "match")
         setSelectedMatch(match);
-        fetchMessages(match.stringId);
+        // fetchMessages(match.stringId);
     };
 
     const sendMessage = async (e) => {

@@ -19,25 +19,27 @@ function App() {
   const [modalPerson, setModalPerson] = useState(null);
 
   const currentUser = JSON.parse(localStorage.getItem('user'));
-  //to set Object for blurry images dpending on messageCount
-  useEffect(() => {
-    const fetchMessageCounts = async () => {
-        try {
-            const messageCounts = {};
-            for (const match of matches) {
-                const response = await axios.get(`http://localhost:8080/messages/${currentUser.stringId}/${match.stringId}`, { withCredentials: true });
-                messageCounts[match.stringId] = response.data.length;
-            }
-            setMessageCount(messageCounts);
-        } catch (error) {
-            console.error("Failed to fetch message counts", error);
-        }
-    };
 
-    if (currentUser && matches) {
-        fetchMessageCounts();
-    }
-}, [currentUser, matches]);
+  //issue to debug: this continues to call endpoint > can see on backend terminal .. app functions without this but the realPhoto for the the matches in the modal doesnt show AT all 
+  //to set Object for blurry images dpending on messageCount
+//   useEffect(() => {
+//     const fetchMessageCounts = async () => {
+//         try {
+//             const messageCounts = {};
+//             for (const match of matches) {
+//                 const response = await axios.get(`http://localhost:8080/messages/${currentUser.stringId}/${match.stringId}`, { withCredentials: true });
+//                 messageCounts[match.stringId] = response.data.length;
+//             }
+//             setMessageCount(messageCounts);
+//         } catch (error) {
+//             console.error("Failed to fetch message counts", error);
+//         }
+//     };
+
+//     if (currentUser && matches) {
+//         fetchMessageCounts();
+//     }
+// }, [currentUser, matches]);
 
   const handleLogout = () => {
     setUser(null);

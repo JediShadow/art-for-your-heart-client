@@ -12,12 +12,57 @@ import {
   } from 'semantic-ui-react'
   
 
-//user. items : bio, gender, height, interests, realPhoto, 
 function Profile({user, handleLogout}){
     const [editMode, setEditMode] = useState(false);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    name: user.name,
+    username: user.username,
+    age: user.age,
+    gender: user.gender,
+    location: user.location,
+    height: user.height,
+    interests: user.interests,
+    bio: user.bio,
+});
 
-    console.log(user)
+const handleChange = (event) => {
+  const { name, value } = event.target;
+  setFormData({ ...formData, [name]: value });
+};
+
+  async function handleSubmit (event) {
+    event.preventDefault();
+
+    const updatedUserData = {
+      name: event.target.name.value,
+      username: event.target.username.value,
+      age: parseInt(event.target.age.value),
+      height: event.target.height.value,
+      location: event.target.location.value,
+      gender: event.target.gender.value,
+      bio: event.target.bio.value,
+      interests: [event.target.interests.value],
+      // artPhotos: [user.artPhotos],
+      // realPhoto: user.realPhoto,
+      password: 'vango',
+      roles: ['ROLE_USER']
+    };
+
+    //how to handle artPhotos, realPhoto > grab through user 
+    //password option 1 > leave it out and change backend to grab password for matching userID with put requst
+
+    axios.put(`http://localhost:8080/users/${user.stringId}`, updatedUserData,{
+        withCredentials: true
+    })
+  .then(response => {
+    console.log('User updated successfully:', response.data);
+  })
+  .catch(error => {
+    console.error('Failed to update user:', error);
+  });
+
+}
+
     return (
         <div className='profile'>
             <div className="title-flex">
@@ -54,51 +99,56 @@ logout
       <div class="header">User Information</div>
     </div>
     <div class="content">
-      <form class="ui form">
+      <form class="ui form" onSubmit={handleSubmit}>
 
         <div className='formflex'>
       <div class="field">
           <label>Name</label>
-          <input type="text" name="name" placeholder="Name" value={user.name} readOnly/>
+          <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} />
         </div>
         <div class="field">
           <label>Username</label>
-          <input type="text" name="username" placeholder="Username" value={user.username} readOnly/>
+          <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange}/>
         </div>
         <div class="field">
           <label>Age</label>
-          <input type="text" name="age" placeholder="Age" value={user.age} readOnly/>
+          <input type="text" name="age" placeholder="Age" value={formData.age} onChange={handleChange}/>
         </div>
         <div class="field">
           <label>Gender</label>
-          <input type="text" name="gender" placeholder="Gender" value={user.gender} readOnly/>
+          <input type="text" name="gender" placeholder="Gender" value={formData.gender} onChange={handleChange}/>
         </div>
         </div>
 
         <div className='formflex'>
         <div class="field">
           <label>Location</label>
-          <input type="text" name="location" placeholder="Location" value={user.location} readOnly/>
+          <input type="text" name="location" placeholder="Location" value={formData.location} onChange={handleChange}/>
         </div>
         <div class="field">
           <label>Height</label>
-          <input type="text" name="height" placeholder="Height" value={user.height} readOnly/>
+          <input type="text" name="height" placeholder="Height" value={formData.height} onChange={handleChange}/>
         </div>
         <div class="field">
           <label>Interests</label>
-          <input type="text" name="interests" placeholder="Interests" value={user.interests} readOnly/>
+          <input type="text" name="interests" placeholder="Interests" value={formData.interests} onChange={handleChange}/>
         </div>
         <div class="field">
           <label>Bio</label>
-          <textarea name="bio" placeholder="Bio" readOnly>{user.bio}</textarea>
+          <textarea name="bio" placeholder="Bio" value={formData.bio} onChange={handleChange} />
         </div>
         </div>
-        <button class="ui button" type="submit" disabled>Submit</button>
+        <button class="ui button" type="submit" >Submit</button>
       </form>
     </div>
   </div>
 </div>
 </div>
+
+{/* upon logout error: realPhoto is null ?? instead of redirecting
+<button className='button-logout' onClick={handleLogout}><span class="material-symbols-outlined">
+logout
+</span></button>      */}
         </div>
 
         
