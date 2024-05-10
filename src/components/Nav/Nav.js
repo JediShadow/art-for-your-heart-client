@@ -1,9 +1,15 @@
 import './Nav.scss';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import React, { useEffect } from 'react';
+import {Link, useLocation } from 'react-router-dom';
 
 
-function Nav(){
+function Nav({setModal}){
+    const location = useLocation();
+    useEffect(() => {
+        setModal(false);
+    }, [location.pathname, setModal]);
+
     return (
         <div className='nav'>
             <Link to='/main'><span className="material-symbols-outlined nav__icon">home</span></Link>

@@ -1,6 +1,7 @@
 import './Matches.scss';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Modal from '../Modal/Modal';
 import {
     CardMeta,
     CardHeader,
@@ -14,9 +15,15 @@ import {
   } from 'semantic-ui-react'
 //   const { ObjectId } = require('mongodb');
 
+function Matches({matches, modal, setModal, modalPerson, setModalPerson, messageCount}){
 
-function Matches({user, setMatches, matches}){
-
+    const handleClick=(person)=>{
+        setModal(true)
+        setModalPerson(person)
+    }
+    const closeModal = () => {
+        setModal(false); 
+    }
     return (
         <div className='matches'>
             <div className="title-flex">
@@ -29,7 +36,7 @@ function Matches({user, setMatches, matches}){
                 return(
                     //to format how many cards at width
                     <GridColumn key={index} mobile={8} tablet={4} computer={2}>
-            <Card>
+            <Card onClick={() =>handleClick(person)}>
                 <Image src={person.artPhotos !== null? person.artPhotos[0] :'https://react.semantic-ui.com/images/avatar/large/matthew.png'} wrapped ui={false} />
                 <CardContent>
                 <CardHeader key={index}>{person.name}</CardHeader>
@@ -55,6 +62,7 @@ function Matches({user, setMatches, matches}){
            <p>no matches</p>
            }
             </Grid>
+            {modal && <Modal closeModal={() => setModal(false)} modalPerson={modalPerson} messageCount={messageCount} />}
         </div>
     );
 }
