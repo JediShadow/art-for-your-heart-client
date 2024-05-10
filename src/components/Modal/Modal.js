@@ -6,9 +6,6 @@ import $ from 'jquery';
 
 
 function Modal({closeModal, modalPerson, messageCount}){
-    // useEffect(() => {
-    //     $('.ui.modal').modal('show'); 
-    // }, []);
     console.log(modalPerson)
 
     useEffect(() => {
