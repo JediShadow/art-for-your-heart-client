@@ -1,14 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Poetsen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poetsen+One&display=swap');
 
 body,
 html {
 	height: 100%;
 }
 
+h1 {
+    font-family: "Dela Gothic One", sans-serif !important;
+    text-align: center;
+    font-size: 4em !important;
+}
+
+label {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-optical-sizing: auto;
+}
+
 .login {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+    justify-content: center;
 }
 
 .hero-image {
@@ -31,23 +43,24 @@ html {
 //     
 // }
 
+.formContainer{
+    // background-image: url('../../assets/paint1.svg'); /* Specify the path to your image */
+    // background-size: cover; /* Cover the entire container */
+    // background-position: center; /* Position the image at the center */
+    width: 40%;
+}
+
 .flex {
 	display: flex !important;
 	justify-content: center;
-}
-
-Card {
-	margin: auto;
 }
 
 // .logo{
 //     max-width: 300px;
 // }
 
-.formContainer {
-	background-image: url("../../assets/paint2.svg"); /* Specify the path to your image */
-	background-size: cover; /* Cover the entire container */
-	background-position: center; /* Position the image at the center */
+.home-cards {
+    margin-bottom: 50px;
 }
 
 ul {
