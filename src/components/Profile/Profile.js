@@ -13,7 +13,6 @@ import {
   
 
 function Profile({user, handleLogout}){
-    const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState({
     name: user.name,
     username: user.username,
@@ -47,10 +46,6 @@ const handleChange = (event) => {
       password: 'vango',
       roles: ['ROLE_USER']
     };
-
-    //how to handle artPhotos, realPhoto > grab through user 
-    //password option 1 > leave it out and change backend to grab password for matching userID with put requst
-
     axios.put(`http://localhost:8080/users/${user.stringId}`, updatedUserData,{
         withCredentials: true
     })
