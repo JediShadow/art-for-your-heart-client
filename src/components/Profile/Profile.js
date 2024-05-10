@@ -83,9 +83,6 @@ const handleChange = (event) => {
                     {user.location}
                 </a>
                 </CardContent>       
-                {/* <button className='button-logout' onClick={handleLogout}><span class="material-symbols-outlined">
-logout
-</span></button>      */}
             </Card></div>
 
 <div class="ui container">

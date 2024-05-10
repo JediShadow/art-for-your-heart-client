@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route, useNavigate, Navigate} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './App.scss';
 import axios from 'axios';
@@ -39,7 +39,7 @@ function App() {
     if (currentUser && matches) {
         fetchMessageCounts();
     }
-}, [currentUser, matches]);
+}, [ matches]);
 
   const handleLogout = () => {
     setUser(null);
@@ -64,10 +64,10 @@ function App() {
   }
         <Routes>
           <Route path="/"element={<Login handleLogin={handleLogin} user={user}  />}/>
-          <Route path="/signup" element={<Signup handleLogin={handleLogin}/>} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/main" element={ <Main setMatches={setMatches} modal={modal} setModal={setModal} modalPerson={modalPerson} setModalPerson= {setModalPerson} messageCount={messageCount}/>}/>
           <Route path="/matches" element={<Matches matches={matches} modal={modal} setModal={setModal} modalPerson={modalPerson} setModalPerson= {setModalPerson} messageCount={messageCount}/>}/>
-          <Route path="/messages" element={<Messages matches={matches} messageCount={messageCount} setMessageCount={setMessageCount} />} />
+          <Route path="/messages" element={<Messages matches={matches}  />} />
           <Route path="/profile" element={<Profile handleLogout={handleLogout} user={user} />} />
         </Routes>
       </BrowserRouter>
