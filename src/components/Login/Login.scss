@@ -1,15 +1,88 @@
-.login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Poetsen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poetsen+One&display=swap');
+
+body,
+html {
+	height: 100%;
 }
 
-.logo{
-    max-width: 300px;
+h1 {
+    font-family: "Dela Gothic One", sans-serif !important;
+    text-align: center;
+    font-size: 4em !important;
+    margin-bottom: 40px !important;
 }
+
+label {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-optical-sizing: auto;
+}
+
+.login {
+	display: flex;
+    justify-content: center;
+}
+
+.hero-image {
+	background-image: url("../../assets/landingpagebanner.png");
+	height: 60%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+    margin-bottom: 50px;
+}
+
+// .landingpagebanner {
+//     height: 20%;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     position: relative;
+//     width: 100%;
+//     
+// }
 
 .formContainer{
-    background-image: url('../../assets/paint2.svg'); /* Specify the path to your image */
-    background-size: cover; /* Cover the entire container */
-    background-position: center; /* Position the image at the center */
+    // background-image: url('../../assets/paint1.svg'); /* Specify the path to your image */
+    // background-size: cover; /* Cover the entire container */
+    // background-position: center; /* Position the image at the center */
+    width: 40%;
+}
+
+.flex {
+	display: flex !important;
+	justify-content: center;
+}
+
+// .logo{
+//     max-width: 300px;
+// }
+
+.home-cards {
+    margin-bottom: 50px;
+}
+
+ul {
+	list-style-type: none;
+	margin: 20px;
+	padding: 0;
+	overflow: hidden;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-family: "Poetsen One", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 20px;
 }
