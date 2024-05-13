@@ -41,36 +41,39 @@ function App() {
     }
 }, [currentUser, matches]);
 
-  const handleLogout = () => {
-    setUser(null);
-    return <Navigate to="/" replace />;
-  };
+
 
   const handleLogin=(user)=>{
     setUser(user);
     return <Navigate to="/main" replace />;
   }
-  
+ 
   return (
     <div className="App">
-<BrowserRouter>
-{
-    (window.location.pathname === '/main' ||
-      window.location.pathname === '/matches' ||
-      window.location.pathname === '/messages' ||
-      window.location.pathname === '/profile') && (
-        <Nav handleLogout={handleLogout} setModal={setModal} />
-      )
-  }
-        <Routes>
-          <Route path="/"element={<Login handleLogin={handleLogin} user={user}  />}/>
-          <Route path="/signup" element={<Signup handleLogin={handleLogin}/>} />
-          <Route path="/main" element={ <Main setMatches={setMatches} modal={modal} setModal={setModal} modalPerson={modalPerson} setModalPerson= {setModalPerson} messageCount={messageCount}/>}/>
-          <Route path="/matches" element={<Matches matches={matches} modal={modal} setModal={setModal} modalPerson={modalPerson} setModalPerson= {setModalPerson} messageCount={messageCount}/>}/>
-          <Route path="/messages" element={<Messages matches={matches} messageCount={messageCount} setMessageCount={setMessageCount} />} />
-          <Route path="/profile" element={<Profile handleLogout={handleLogout} user={user} />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      {user ? (
+        <>
+          {window.location.pathname === '/main' ||
+          window.location.pathname === '/matches' ||
+          window.location.pathname === '/messages' ||
+          window.location.pathname === '/profile' ? (
+            <Nav setModal={setModal} />
+          ) : null}
+          <Routes>
+            <Route path="/main" element={<Main setMatches={setMatches} modal={modal} setModal={setModal} modalPerson={modalPerson} setModalPerson={setModalPerson} messageCount={messageCount} />} />
+            <Route path="/matches" element={<Matches matches={matches} modal={modal} setModal={setModal} modalPerson={modalPerson} setModalPerson={setModalPerson} messageCount={messageCount} />} />
+            <Route path="/messages" element={<Messages matches={matches} messageCount={messageCount} setMessageCount={setMessageCount} />} />
+            <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
+          </Routes>
+        </>
+      ) : (
+        <Navigate to="/" replace />
+      )}
+      <Routes>
+        <Route path="/" element={<Login handleLogin={handleLogin} user={user} />} />
+        <Route path="/signup" element={<Signup handleLogin={handleLogin} />} />
+      </Routes>
+    </BrowserRouter>
     </div>
   );
 }

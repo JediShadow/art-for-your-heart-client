@@ -1,6 +1,8 @@
 import './Profile.scss';
 import axios from 'axios';
 import React, { useState } from 'react';
+import {Navigate} from 'react-router-dom';
+
 import {
     CardMeta,
     CardHeader,
@@ -12,7 +14,8 @@ import {
   } from 'semantic-ui-react'
   
 
-function Profile({user, handleLogout}){
+function Profile({user, setUser}){
+ 
   const [formData, setFormData] = useState({
     name: user.name,
     username: user.username,
@@ -24,6 +27,12 @@ function Profile({user, handleLogout}){
     bio: user.bio,
 });
 
+
+const handleLogout = () => {
+  setUser(null);
+  return <Navigate to="/"  />;
+};
+
 const handleChange = (event) => {
   const { name, value } = event.target;
   setFormData({ ...formData, [name]: value });
@@ -33,16 +42,14 @@ const handleChange = (event) => {
     event.preventDefault();
 
     const updatedUserData = {
-      name: event.target.name.value,
-      username: event.target.username.value,
-      age: parseInt(event.target.age.value),
-      height: event.target.height.value,
-      location: event.target.location.value,
-      gender: event.target.gender.value,
-      bio: event.target.bio.value,
-      interests: [event.target.interests.value],
-      // artPhotos: [user.artPhotos],
-      // realPhoto: user.realPhoto,
+      name: formData.name,
+      username: formData.username,
+      age: parseInt(formData.age),
+      height: formData.height,
+      location: formData.location,
+      gender: formData.gender,
+      bio: formData.bio,
+      interests: [formData.interests],
       password: 'vango',
       roles: ['ROLE_USER']
     };
@@ -83,9 +90,6 @@ const handleChange = (event) => {
                     {user.location}
                 </a>
                 </CardContent>       
-                {/* <button className='button-logout' onClick={handleLogout}><span class="material-symbols-outlined">
-logout
-</span></button>      */}
             </Card></div>
 
 <div class="ui container">
@@ -140,10 +144,9 @@ logout
 </div>
 </div>
 
-{/* upon logout error: realPhoto is null ?? instead of redirecting
 <button className='button-logout' onClick={handleLogout}><span class="material-symbols-outlined">
 logout
-</span></button>      */}
+</span></button>     
         </div>
 
         
