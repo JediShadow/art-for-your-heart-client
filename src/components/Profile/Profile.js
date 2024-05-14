@@ -42,14 +42,14 @@ const handleChange = (event) => {
     event.preventDefault();
 
     const updatedUserData = {
-      name: formData.name,
-      username: formData.username,
-      age: parseInt(formData.age),
-      height: formData.height,
-      location: formData.location,
-      gender: formData.gender,
-      bio: formData.bio,
-      interests: [formData.interests],
+      name: event.target.name.value,
+      username: event.target.username.value,
+      age: parseInt(event.target.age.value),
+      height: event.target.height.value,
+      location: event.target.location.value,
+      gender: event.target.gender.value,
+      bio: event.target.bio.value,
+      interests: [event.target.interests.value],
       password: 'vango',
       roles: ['ROLE_USER']
     };
