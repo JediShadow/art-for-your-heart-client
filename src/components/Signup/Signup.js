@@ -1,13 +1,10 @@
 import "./Signup.scss";
 import axios from "axios";
-import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import {
 	FormField,
 	Button,
 	Form,
-	FormSelect,
-	FormTextArea,
 	FormCheckbox,
 	Grid,
 	GridRow,

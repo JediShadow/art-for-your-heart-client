@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route, useNavigate, Navigate} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './App.scss';
 import axios from 'axios';
@@ -39,14 +39,12 @@ function App() {
     if (currentUser && matches) {
         fetchMessageCounts();
     }
-}, [currentUser, matches]);
+}, [ matches]);
 
-
-
-  const handleLogin=(user)=>{
-    setUser(user);
-    return <Navigate to="/main" replace />;
-  }
+const handleLogin=(user)=>{
+  setUser(user);
+  return <Navigate to="/main" replace />;
+}
  
   return (
     <div className="App">

@@ -78,13 +78,6 @@ function Main({setMatches, modal, setModal, modalPerson, setModalPerson, message
 
     };
 
-    const handleNext = () => {
-        setCurrentIndex(prevIndex => prevIndex + 1);
-    };
-
-    const handlePrevious = () => {
-        setCurrentIndex(prevIndex => prevIndex - 1);
-    };
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
