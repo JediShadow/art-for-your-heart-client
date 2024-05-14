@@ -1,6 +1,4 @@
 import './Matches.scss';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
 import Modal from '../Modal/Modal';
 import {
     CardMeta,
@@ -13,7 +11,6 @@ import {
     GridColumn, 
     Grid,
   } from 'semantic-ui-react'
-//   const { ObjectId } = require('mongodb');
 
 function Matches({matches, modal, setModal, modalPerson, setModalPerson, messageCount}){
 

@@ -2,9 +2,8 @@ import './Messages.scss';
 import {MessageHeader, Message} from 'semantic-ui-react'
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import { FormField, Button, Form, FormSelect, FormTextArea, FormCheckbox } from 'semantic-ui-react'
 
-function Messages({messageCount, matches, setMessageCount}) {
+function Messages({ matches}) {
     const [selectedMatch, setSelectedMatch] = useState(null);
     const [messages, setMessages] = useState([]);
     const [messageContent, setMessageContent] = useState('');
@@ -32,7 +31,6 @@ function Messages({messageCount, matches, setMessageCount}) {
     const handleThreadClick = (match) => {
         console.log(match, "match")
         setSelectedMatch(match);
-        // fetchMessages(match.stringId);
     };
 
     const sendMessage = async (e) => {

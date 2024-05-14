@@ -5,8 +5,6 @@ import {
 	CardContent,
 	CardDescription,
 	CardHeader,
-	CardMeta,
-	Icon,
 	Image,
 	Grid,
 	GridRow,
@@ -14,11 +12,7 @@ import {
 	FormField,
 	Button,
 	Form,
-	FormSelect,
-	FormTextArea,
-	FormCheckbox,
 } from "semantic-ui-react";
-import landingpagebanner from "../../assets/landingpagebanner.png";
 import "./Login.scss";
 
 function Login({ handleLogin }) {
@@ -52,7 +46,6 @@ function Login({ handleLogin }) {
 				if (user) {
 					console.log(user.userId); // Or however the userId is named in your user object
 				}
-				console.log(user);
 
 				axios
 					.get("http://localhost:8080/users/api/auth/check", {
@@ -73,7 +66,6 @@ function Login({ handleLogin }) {
 			})
 			.catch((error) => {
 				console.error("Login failed", error);
-				// Handle login failure (e.g., display an error message)
 			});
 	}
 
