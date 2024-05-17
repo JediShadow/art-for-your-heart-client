@@ -62,9 +62,6 @@ function Signup() {
 						<a onClick={() => navigate("/")}>Home</a>
 					</li>
 					<li>
-						<a onClick={() => navigate("/about")}>About</a>
-					</li>
-					<li>
 						<a onClick={() => navigate("/signup")}>Sign Up</a>
 					</li>
 				</ul>
@@ -75,7 +72,7 @@ function Signup() {
 					<GridRow columns={2}>
 						<GridColumn>
 							<div className="flex">
-								<img className="sign-up-image" alt='image of two artists together 'src="https://cdn.discordapp.com/attachments/1235236556185407530/1238482315768893470/jazzytweety_artists_laughing_together_featuring_pink_purple_red_61bfd094-5c33-4c9d-85c5-2b7963020372.png?ex=663f7209&is=663e2089&hm=eee26f2864d929059f6c4d3c6a8ca163bd34e1383fea7cfd6dd76d7b143f36a4&"></img>
+								<img className="sign-up-image" alt='image of two artists together' src="https://cdn.midjourney.com/c01e1bad-f694-45b9-9aa0-d9beba8db721/0_3.webp"></img>
 							</div>
 						</GridColumn>
 						<GridColumn>

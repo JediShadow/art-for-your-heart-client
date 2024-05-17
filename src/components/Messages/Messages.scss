@@ -1,6 +1,18 @@
 .messages{
-    background-image: url('../../assets/paint1.svg'); 
-    background-size: cover;
-    background-position: center; 
-    height: 100vh;
+    background-image: url('../../assets/background.png');
+    background-repeat: repeat;
+    height: 100%;
+}
+
+.message {
+    width: 80% !important;
+    margin: 10px !important;
+}
+
+.user-icon {
+    border-radius: 50%;
+    height: 100px;
+    max-width: 100px;
+    object-fit: cover;
+    margin-right: 20px;
 }

@@ -65,12 +65,11 @@ const handleLogin=(user)=>{
           </Routes>
         </>
       ) : (
-        <Navigate to="/" replace />
-      )}
-      <Routes>
+        <Routes>
         <Route path="/" element={<Login handleLogin={handleLogin} user={user} />} />
         <Route path="/signup" element={<Signup handleLogin={handleLogin} />} />
       </Routes>
+      )}
     </BrowserRouter>
     </div>
   );

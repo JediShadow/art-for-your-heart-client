@@ -1,6 +1,7 @@
+
 .main{
-    background-size: cover;
-    background-position: center; 
+    background-image: url('../../assets/background.png');
+    background-repeat: repeat;
     &-card-flex{
         display: flex;
         flex-direction: column;

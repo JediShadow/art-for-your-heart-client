@@ -78,10 +78,7 @@ function Login({ handleLogin }) {
 			<div className="navbar">
 				<ul>
 					<li>
-						<a onClick={() => navigate("/about")}>Home</a>
-					</li>
-					<li>
-						<a onClick={() => navigate("/about")}>About</a>
+						<a onClick={() => navigate("/")}>Home</a>
 					</li>
 					<li>
 						<a onClick={() => navigate("/signup")}>Sign Up</a>
@@ -181,6 +178,9 @@ function Login({ handleLogin }) {
 					</div>
 				</div>
 			</div>
+            <div className="footer">
+                <p>Made by Sarai Escobar and Jazmin Tweedle</p>
+            </div>
 		</>
 	);
 }
