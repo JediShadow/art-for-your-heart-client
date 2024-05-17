@@ -8,3 +8,16 @@
     display: flex;
     justify-content: center;
 }
+
+.matches-image {
+    height: 290px !important;
+    object-fit: cover !important;
+}
+
+.ui.card:first-child {
+    margin-top: 1em !important;
+}
+
+.ui.card:last-child {
+    margin-bottom: 1em !important;
+}

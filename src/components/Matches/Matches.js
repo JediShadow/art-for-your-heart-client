@@ -30,31 +30,25 @@ function Matches({
 	};
 	return (
 		<div className="matches">
-			<div className="title-flex">
+			<div className="title-flex padding-top">
 				<h1>MATCHES</h1>
 			</div>
-			<Grid>
-                <GridRow>
+			<Grid >
 				{matches ? (
 					<>
 						{matches.map((person, index) => {
 							return (
 								//to format how many cards at width
-								<GridColumn
-									key={index}
-									mobile={8}
-									tablet={4}
-									computer={4}
-								>
 									<Card onClick={() => handleClick(person)}>
-										<Image
+										<Image 
+                                            className="matches-image"
 											src={
 												person.artPhotos !== null
 													? person.artPhotos[0]
 													: "https://react.semantic-ui.com/images/avatar/large/matthew.png"
 											}
-											wrapped
-											ui={false}
+											// wrapped
+											// ui={false}
 										/>
 										<CardContent>
 											<CardHeader key={index}>
@@ -62,28 +56,26 @@ function Matches({
 											</CardHeader>
 											<CardMeta>
 												<span className="date">
-													{person.age}
+													{person.age}, {person.location}
 												</span>
 											</CardMeta>
 											<CardDescription>
 												{person.bio}
 											</CardDescription>
 										</CardContent>
-										<CardContent extra>
+										{/* <CardContent extra>
 											<a>
 												<Icon name="user" />
 												{person.location}
 											</a>
-										</CardContent>
+										</CardContent> */}
 									</Card>
-								</GridColumn>
 							);
 						})}
 					</>
 				) : (
 					<p>no matches</p>
 				)}
-                </GridRow>
 			</Grid>
 			{modal && (
 				<Modal

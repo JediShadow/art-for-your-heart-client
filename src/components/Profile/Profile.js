@@ -71,7 +71,7 @@ function Profile({ user, setUser }) {
 
 	return (
 		<div className="profile">
-			<div className="title-flex">
+			<div className="title-flex padding-top">
 				<h1>PROFILE</h1>
 			</div>
 			<div>
