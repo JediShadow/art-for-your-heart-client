@@ -11,6 +11,9 @@ import {
 	Card,
 	Icon,
 	Image,
+	Grid,
+	GridRow,
+	GridColumn,
 } from "semantic-ui-react";
 
 function Profile({ user, setUser }) {
@@ -71,125 +74,132 @@ function Profile({ user, setUser }) {
 			<div className="title-flex">
 				<h1>PROFILE</h1>
 			</div>
-			<div className="profile-flex">
-				<div>
-					<h3>My Card</h3>
-					<Card>
-						<Image src={user.realPhoto} wrapped ui={false} />
-						<CardContent>
-							<CardHeader>{user.name}</CardHeader>
-							<CardMeta>
-								<span className="date">{user.age}</span>
-							</CardMeta>
-							<CardDescription>{user.bio}</CardDescription>
-						</CardContent>
-						<CardContent extra>
-							<a>
-								<Icon name="user" />
-								{user.location}
-							</a>
-						</CardContent>
-					</Card>
-				</div>
+			<div>
+				<Grid columns={2}>
+                    <GridRow>
+                        <GridColumn className="flex-center">
+					<div>
+						<h3>My Card</h3>
+						<Card>
+							<Image src={user.realPhoto} wrapped ui={false} />
+							<CardContent>
+								<CardHeader>{user.name}</CardHeader>
+								<CardMeta>
+									<span className="date">{user.age}</span>
+								</CardMeta>
+								<CardDescription>{user.bio}</CardDescription>
+							</CardContent>
+							<CardContent extra>
+								<a>
+									<Icon name="user" />
+									{user.location}
+								</a>
+							</CardContent>
+						</Card>
+					</div>
+                    </GridColumn>
+                    <GridColumn>
+					<div class="ui container flex-center">
+						<div class="ui card">
+							<div class="content">
+								<div class="header">User Information</div>
+							</div>
+							<div class="content">
+								<form class="ui form" onSubmit={handleSubmit}>
+									<div className="formflex">
+										<div class="field">
+											<label>Name</label>
+											<input
+												type="text"
+												name="name"
+												placeholder="Name"
+												value={formData.name}
+												onChange={handleChange}
+											/>
+										</div>
+										<div class="field">
+											<label>Username</label>
+											<input
+												type="text"
+												name="username"
+												placeholder="Username"
+												value={formData.username}
+												onChange={handleChange}
+											/>
+										</div>
+										<div class="field">
+											<label>Age</label>
+											<input
+												type="text"
+												name="age"
+												placeholder="Age"
+												value={formData.age}
+												onChange={handleChange}
+											/>
+										</div>
+										<div class="field">
+											<label>Gender</label>
+											<input
+												type="text"
+												name="gender"
+												placeholder="Gender"
+												value={formData.gender}
+												onChange={handleChange}
+											/>
+										</div>
+									</div>
 
-				<div class="ui container">
-					<div class="ui card">
-						<div class="content">
-							<div class="header">User Information</div>
-						</div>
-						<div class="content">
-							<form class="ui form" onSubmit={handleSubmit}>
-								<div className="formflex">
-									<div class="field">
-										<label>Name</label>
-										<input
-											type="text"
-											name="name"
-											placeholder="Name"
-											value={formData.name}
-											onChange={handleChange}
-										/>
+									<div className="formflex">
+										<div class="field">
+											<label>Location</label>
+											<input
+												type="text"
+												name="location"
+												placeholder="Location"
+												value={formData.location}
+												onChange={handleChange}
+											/>
+										</div>
+										<div class="field">
+											<label>Height</label>
+											<input
+												type="text"
+												name="height"
+												placeholder="Height"
+												value={formData.height}
+												onChange={handleChange}
+											/>
+										</div>
+										<div class="field">
+											<label>Interests</label>
+											<input
+												type="text"
+												name="interests"
+												placeholder="Interests"
+												value={formData.interests}
+												onChange={handleChange}
+											/>
+										</div>
+										<div class="field">
+											<label>Bio</label>
+											<textarea
+												name="bio"
+												placeholder="Bio"
+												value={formData.bio}
+												onChange={handleChange}
+											/>
+										</div>
 									</div>
-									<div class="field">
-										<label>Username</label>
-										<input
-											type="text"
-											name="username"
-											placeholder="Username"
-											value={formData.username}
-											onChange={handleChange}
-										/>
-									</div>
-									<div class="field">
-										<label>Age</label>
-										<input
-											type="text"
-											name="age"
-											placeholder="Age"
-											value={formData.age}
-											onChange={handleChange}
-										/>
-									</div>
-									<div class="field">
-										<label>Gender</label>
-										<input
-											type="text"
-											name="gender"
-											placeholder="Gender"
-											value={formData.gender}
-											onChange={handleChange}
-										/>
-									</div>
-								</div>
-
-								<div className="formflex">
-									<div class="field">
-										<label>Location</label>
-										<input
-											type="text"
-											name="location"
-											placeholder="Location"
-											value={formData.location}
-											onChange={handleChange}
-										/>
-									</div>
-									<div class="field">
-										<label>Height</label>
-										<input
-											type="text"
-											name="height"
-											placeholder="Height"
-											value={formData.height}
-											onChange={handleChange}
-										/>
-									</div>
-									<div class="field">
-										<label>Interests</label>
-										<input
-											type="text"
-											name="interests"
-											placeholder="Interests"
-											value={formData.interests}
-											onChange={handleChange}
-										/>
-									</div>
-									<div class="field">
-										<label>Bio</label>
-										<textarea
-											name="bio"
-											placeholder="Bio"
-											value={formData.bio}
-											onChange={handleChange}
-										/>
-									</div>
-								</div>
-								<button class="ui button" type="submit">
-									Submit
-								</button>
-							</form>
+									<button class="ui button" type="submit">
+										Submit
+									</button>
+								</form>
+							</div>
 						</div>
 					</div>
-				</div>
+                    </GridColumn>
+                    </GridRow>
+				</Grid>
 			</div>
 
 			<button className="button-logout" onClick={handleLogout}>
