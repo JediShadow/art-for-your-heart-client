@@ -19,6 +19,9 @@ import {
 	FormCheckbox,
 } from "semantic-ui-react";
 import landingpagebanner from "../../assets/landingpagebanner.png";
+import womanlaughing from "../../assets/womanlaughing.png"
+import hobbies from "../../assets/hobbies.png"
+import man from "../../assets/man.jpg"
 import "./Login.scss";
 
 function Login({ handleLogin }) {
@@ -100,7 +103,7 @@ function Login({ handleLogin }) {
 						<GridColumn className="flex">
 							<Card>
 								<Image
-									src="https://cdn.discordapp.com/attachments/1235236556185407530/1238468515531456512/jazzytweety_two_artists_laughing_and_painting_together_d746ab99-4d59-40d1-b4e2-3288869231d2.png?ex=663f652f&is=663e13af&hm=2ffc675c4f3866414e29ae0ff92e0937815bcfb621596ae352d4949ef9f54cc8&"
+									src={man}
 									wrapped
 									ui={false}
 								/>
@@ -118,7 +121,7 @@ function Login({ handleLogin }) {
 						<GridColumn className="flex">
 							<Card>
 								<Image
-									src="https://cdn.discordapp.com/attachments/1235236556185407530/1238468615775326258/jazzytweety_sketched_image_of_woman_laughing_and_smiling_bca984ef-7aa3-42e7-94f9-2725c46077c6.png?ex=663f6547&is=663e13c7&hm=2feaca7d56f5f65f4e56c94935399f312199279172df9cbd647fa6c2886de27b&"
+									src={womanlaughing}
 									wrapped
 									ui={false}
 								/>
@@ -137,7 +140,7 @@ function Login({ handleLogin }) {
 						<GridColumn className="flex">
 							<Card>
 								<Image
-									src="https://cdn.discordapp.com/attachments/1235236556185407530/1238468692598329374/jazzytweety_picture_of_different_hobbies_c4748f99-117b-4117-be53-71486ce2267a.png?ex=663f6559&is=663e13d9&hm=dbbbb8d35b70ef778ad8aa2a0eced15ed18d89cdde867428e289a68168fd9ad2&"
+									src={hobbies}
 									wrapped
 									ui={false}
 								/>
@@ -174,9 +177,11 @@ function Login({ handleLogin }) {
 							</FormField>
 							<Button type="submit">Login</Button>
 						</Form>
-						<a onClick={() => navigate("/signup")}>
-							Don't have account? Signup
-						</a>
+						<div className="flex">
+							<a onClick={() => navigate("/signup")}>
+								Need an account? Sign up now!
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
