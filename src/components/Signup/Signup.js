@@ -75,7 +75,7 @@ function Signup() {
 					<GridRow columns={2}>
 						<GridColumn>
 							<div className="flex">
-								<img className="sign-up-image" alt='image of two artists together 'src=""></img>
+								<img className="sign-up-image" alt='image of two artists together' src="https://cdn.midjourney.com/c01e1bad-f694-45b9-9aa0-d9beba8db721/0_3.webp"></img>
 							</div>
 						</GridColumn>
 						<GridColumn>
