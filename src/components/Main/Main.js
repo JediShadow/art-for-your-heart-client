@@ -122,7 +122,7 @@ function Main({setMatches, modal, setModal, modalPerson, setModalPerson, message
     return (
         <div className='main'>
             <div className="title-flex">
-            <h1>Art for your heart</h1>
+            <h1>DASHBOARD</h1>
             </div>
             <div className='main-card-flex'>
         {toSwipe && toSwipe.length > 0 && (
