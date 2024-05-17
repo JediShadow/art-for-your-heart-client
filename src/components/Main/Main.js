@@ -78,13 +78,6 @@ function Main({setMatches, modal, setModal, modalPerson, setModalPerson, message
 
     };
 
-    const handleNext = () => {
-        setCurrentIndex(prevIndex => prevIndex + 1);
-    };
-
-    const handlePrevious = () => {
-        setCurrentIndex(prevIndex => prevIndex - 1);
-    };
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -135,6 +128,7 @@ function Main({setMatches, modal, setModal, modalPerson, setModalPerson, message
         {toSwipe && toSwipe.length > 0 && (
                 <Card onClick={() =>handleClick(toSwipe[currentIndex])}>
                     <Image
+                        alt='users art photo'
                         src={toSwipe[currentIndex].artPhotos !== null ? toSwipe[currentIndex].artPhotos[0] : 'https://react.semantic-ui.com/images/avatar/large/matthew.png'}
                         wrapped ui={false}/>
                     <CardContent>

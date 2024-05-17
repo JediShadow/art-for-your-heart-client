@@ -1,6 +1,8 @@
 import './Profile.scss';
 import axios from 'axios';
 import React, { useState } from 'react';
+import {Navigate} from 'react-router-dom';
+
 import {
     CardMeta,
     CardHeader,
@@ -12,7 +14,8 @@ import {
   } from 'semantic-ui-react'
   
 
-function Profile({user, handleLogout}){
+function Profile({user, setUser}){
+ 
   const [formData, setFormData] = useState({
     name: user.name,
     username: user.username,
@@ -23,6 +26,12 @@ function Profile({user, handleLogout}){
     interests: user.interests,
     bio: user.bio,
 });
+
+
+const handleLogout = () => {
+  setUser(null);
+  return <Navigate to="/"  />;
+};
 
 const handleChange = (event) => {
   const { name, value } = event.target;
@@ -41,8 +50,6 @@ const handleChange = (event) => {
       gender: event.target.gender.value,
       bio: event.target.bio.value,
       interests: [event.target.interests.value],
-      // artPhotos: [user.artPhotos],
-      // realPhoto: user.realPhoto,
       password: 'vango',
       roles: ['ROLE_USER']
     };
@@ -83,9 +90,6 @@ const handleChange = (event) => {
                     {user.location}
                 </a>
                 </CardContent>       
-                {/* <button className='button-logout' onClick={handleLogout}><span class="material-symbols-outlined">
-logout
-</span></button>      */}
             </Card></div>
 
 <div class="ui container">
@@ -140,10 +144,9 @@ logout
 </div>
 </div>
 
-{/* upon logout error: realPhoto is null ?? instead of redirecting
 <button className='button-logout' onClick={handleLogout}><span class="material-symbols-outlined">
 logout
-</span></button>      */}
+</span></button>     
         </div>
 
         

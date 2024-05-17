@@ -1,13 +1,10 @@
 import "./Signup.scss";
 import axios from "axios";
-import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import {
 	FormField,
 	Button,
 	Form,
-	FormSelect,
-	FormTextArea,
 	FormCheckbox,
 	Grid,
 	GridRow,
@@ -78,7 +75,7 @@ function Signup() {
 					<GridRow columns={2}>
 						<GridColumn>
 							<div className="flex">
-								<img className="sign-up-image" src="https://cdn.discordapp.com/attachments/1235236556185407530/1238482315768893470/jazzytweety_artists_laughing_together_featuring_pink_purple_red_61bfd094-5c33-4c9d-85c5-2b7963020372.png?ex=663f7209&is=663e2089&hm=eee26f2864d929059f6c4d3c6a8ca163bd34e1383fea7cfd6dd76d7b143f36a4&"></img>
+								<img className="sign-up-image" alt='image of two artists together 'src="https://cdn.discordapp.com/attachments/1235236556185407530/1238482315768893470/jazzytweety_artists_laughing_together_featuring_pink_purple_red_61bfd094-5c33-4c9d-85c5-2b7963020372.png?ex=663f7209&is=663e2089&hm=eee26f2864d929059f6c4d3c6a8ca163bd34e1383fea7cfd6dd76d7b143f36a4&"></img>
 							</div>
 						</GridColumn>
 						<GridColumn>
@@ -154,16 +151,18 @@ function Signup() {
 										/>
 									</FormField>
 									<FormField>
-										<label>Profile Photo</label>
+										<label htmlFor="profilePhoto">Profile Photo</label>
 										<input
+											id="profilePhoto"
 											type="file"
 											name="realPhoto"
 											accept="image/*"
 										/>
 									</FormField>
 									<FormField>
-										<label>Art Photos</label>
+										<label htmlFor="artPhotos">Art Photos</label>
 										<input
+											id="artPhotos"
 											type="file"
 											name="artPhotos"
 											accept="image/*"
@@ -178,7 +177,8 @@ function Signup() {
 											name="interests"
 										/>
 									</FormField>
-									<FormCheckbox label="I agree to the Terms and Conditions" />
+									<FormCheckbox id="agreeTerms" label="I agree to the Terms and Conditions" />
+   										 <label htmlFor="agreeTerms">I agree to the Terms and Conditions</label>
 									<Button type="submit">Signup</Button>
 								</Form>
 							</div>
