@@ -62,9 +62,6 @@ function Signup() {
 						<a onClick={() => navigate("/")}>Home</a>
 					</li>
 					<li>
-						<a onClick={() => navigate("/about")}>About</a>
-					</li>
-					<li>
 						<a onClick={() => navigate("/signup")}>Sign Up</a>
 					</li>
 				</ul>

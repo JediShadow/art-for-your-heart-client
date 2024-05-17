@@ -1,8 +1,7 @@
 .profile{
-    background-image: url('../../assets/paint2.svg'); 
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+    background-image: url('../../assets/background.png');
+    background-repeat: repeat;
+    height: 100%;
     &-flex{
 display: flex;
 justify-content: center;
