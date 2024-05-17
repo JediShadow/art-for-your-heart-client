@@ -55,6 +55,9 @@ function Messages({ matches}) {
 
     return (
         <div className='messages'>
+            <div className="title-flex">
+				<h1>MESSAGES</h1>
+			</div>
             {!selectedMatch && matches ? (
                 matches.map((person, index) => {
                     const colorIndex = index % colors.length;

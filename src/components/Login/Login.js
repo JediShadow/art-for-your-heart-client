@@ -78,7 +78,7 @@ function Login({ handleLogin }) {
 			<div className="navbar">
 				<ul>
 					<li>
-						<a onClick={() => navigate("/about")}>Home</a>
+						<a onClick={() => navigate("/")}>Home</a>
 					</li>
 					<li>
 						<a onClick={() => navigate("/about")}>About</a>

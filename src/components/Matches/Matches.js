@@ -31,7 +31,7 @@ function Matches({
 	return (
 		<div className="matches">
 			<div className="title-flex">
-				<h2>Matches</h2>
+				<h1>MATCHES</h1>
 			</div>
 			<Grid>
                 <GridRow>
