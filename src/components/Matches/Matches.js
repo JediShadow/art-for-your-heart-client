@@ -33,7 +33,7 @@ function Matches({
 			<div className="title-flex padding-top">
 				<h1>MATCHES</h1>
 			</div>
-			<Grid >
+			<Grid className="matches-grid">
 				{matches ? (
 					<>
 						{matches.map((person, index) => {
@@ -74,7 +74,7 @@ function Matches({
 						})}
 					</>
 				) : (
-					<p>no matches</p>
+					<p>NO MATCHES</p>
 				)}
 			</Grid>
 			{modal && (

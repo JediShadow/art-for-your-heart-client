@@ -61,35 +61,36 @@ function Main({setMatches, modal, setModal, modalPerson, setModalPerson, message
 
     async function getPeople() {
         const user = JSON.parse(localStorage.getItem('user'));
-        axios.get(`http://localhost:8080/users/main?userId=${user.stringId}`, {}, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            withCredentials: true
-        })
-            .then((response) => {
-                let data = response.data;
-                setToSwipe(data)
-            })
-            .catch((error) => {
-                console.log(error);
+        try {
+            const response = await axios.get(`http://localhost:8080/users/main?userId=${user.stringId}`, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                withCredentials: true
             });
-
-
+            let data = response.data;
+            setToSwipe(data);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
 
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user'));
-        axios.get(`http://localhost:8080/likes/matches?userId=${user.stringId}`)
-            .then((response) => {
-                let data = response.data;
-                setMatches(data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-
+        const userString = localStorage.getItem('user');
+        if (userString) {
+            const user = JSON.parse(userString);
+            if (user && user.stringId) {
+                axios.get(`http://localhost:8080/likes/matches?userId=${user.stringId}`)
+                    .then((response) => {
+                        let data = response.data;
+                        setMatches(data);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
+        }
     }, []);
 
     useEffect(() => {
@@ -150,10 +151,10 @@ function Main({setMatches, modal, setModal, modalPerson, setModalPerson, message
             )}
             <div className='button-container'>
                 <button className='button-dislike' onClick={handleDislike}>
-                    <span class="material-symbols-outlined">close</span>
+                    <span className="material-symbols-outlined">close</span>
                 </button>
                 <button className='button-like' onClick={handleLike}>
-                    <span class="material-symbols-outlined">favorite</span>
+                    <span className="material-symbols-outlined">favorite</span>
                 </button>
             </div>
             </div>
