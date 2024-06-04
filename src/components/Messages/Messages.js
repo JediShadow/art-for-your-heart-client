@@ -78,7 +78,7 @@ function Messages({ matches }) {
 
 	return (
 		<div className="messages">
-			<div className="title-flex">
+			<div className="title-flex padding-top">
 				<h1>MESSAGES</h1>
 			</div>
 			{!selectedMatch && matches ? (

@@ -26,7 +26,7 @@ function Modal({closeModal, modalPerson, messageCount}){
 
 
             <button className='close-button' onClick={closeModal}>
-                    <span class="material-symbols-outlined">close</span>
+                    <span className="material-symbols-outlined">close</span>
                 </button>
                 </div>
         </div></>

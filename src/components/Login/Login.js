@@ -13,7 +13,7 @@ import {
 	Button,
 	Form,
 } from "semantic-ui-react";
-import landingpagebanner from "../../assets/landingpagebanner.png";
+// import landingpagebanner from "../../assets/landingpagebanner.png";
 import womanlaughing from "../../assets/womanlaughing.png"
 import hobbies from "../../assets/hobbies.png"
 import man from "../../assets/man.jpg"

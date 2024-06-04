@@ -71,7 +71,7 @@ function Profile({ user, setUser }) {
 
 	return (
 		<div className="profile">
-			<div className="title-flex">
+			<div className="title-flex padding-top">
 				<h1>PROFILE</h1>
 			</div>
 			<div>
@@ -99,16 +99,16 @@ function Profile({ user, setUser }) {
 					</div>
                     </GridColumn>
                     <GridColumn>
-					<div class="ui container flex-center">
-						<div class="ui card">
-							<div class="content">
-								<div class="header">User Information</div>
+					<div className="ui container flex-center">
+						<div className="ui card">
+							<div className="content">
+								<div className="header">User Information</div>
 							</div>
-							<div class="content">
-								<form class="ui form" onSubmit={handleSubmit}>
+							<div className="content">
+								<form className="ui form" onSubmit={handleSubmit}>
 									<div className="formflex">
-										<div class="field">
-											<label>Name</label>
+										<div className="field">
+											<label htmlFor="Name">Name</label>
 											<input
 												type="text"
 												name="name"
@@ -117,8 +117,8 @@ function Profile({ user, setUser }) {
 												onChange={handleChange}
 											/>
 										</div>
-										<div class="field">
-											<label>Username</label>
+										<div className="field">
+											<label htmlFor="username">Username</label>
 											<input
 												type="text"
 												name="username"
@@ -127,8 +127,8 @@ function Profile({ user, setUser }) {
 												onChange={handleChange}
 											/>
 										</div>
-										<div class="field">
-											<label>Age</label>
+										<div className="field">
+											<label htmlFor="age">Age</label>
 											<input
 												type="text"
 												name="age"
@@ -137,8 +137,8 @@ function Profile({ user, setUser }) {
 												onChange={handleChange}
 											/>
 										</div>
-										<div class="field">
-											<label>Gender</label>
+										<div className="field">
+											<label htmlFor="gender">Gender</label>
 											<input
 												type="text"
 												name="gender"
@@ -150,8 +150,8 @@ function Profile({ user, setUser }) {
 									</div>
 
 									<div className="formflex">
-										<div class="field">
-											<label>Location</label>
+										<div className="field">
+											<label htmlFor="location">Location</label>
 											<input
 												type="text"
 												name="location"
@@ -160,8 +160,8 @@ function Profile({ user, setUser }) {
 												onChange={handleChange}
 											/>
 										</div>
-										<div class="field">
-											<label>Height</label>
+										<div className="field">
+											<label htmlFor="height">Height</label>
 											<input
 												type="text"
 												name="height"
@@ -170,8 +170,8 @@ function Profile({ user, setUser }) {
 												onChange={handleChange}
 											/>
 										</div>
-										<div class="field">
-											<label>Interests</label>
+										<div className="field">
+											<label htmlFor="interests">Interests</label>
 											<input
 												type="text"
 												name="interests"
@@ -180,8 +180,8 @@ function Profile({ user, setUser }) {
 												onChange={handleChange}
 											/>
 										</div>
-										<div class="field">
-											<label>Bio</label>
+										<div className="field">
+											<label htmlFor="bio">Bio</label>
 											<textarea
 												name="bio"
 												placeholder="Bio"
@@ -190,7 +190,7 @@ function Profile({ user, setUser }) {
 											/>
 										</div>
 									</div>
-									<button class="ui button" type="submit">
+									<button className="ui button" type="submit">
 										Submit
 									</button>
 								</form>
@@ -203,7 +203,7 @@ function Profile({ user, setUser }) {
 			</div>
 
 			<button className="button-logout" onClick={handleLogout}>
-				<span class="material-symbols-outlined">logout</span>
+				<span className="material-symbols-outlined">logout</span>
 			</button>
 		</div>
 	);
